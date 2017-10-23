@@ -1,13 +1,17 @@
-def outer_func(msg):
-    message = msg
+def decorator_funtion(original_function):
+    def wrapper_function(*args, **kwargs):
+        return original_function(*args, **kwargs)
+    return wrapper_function
 
-    def inner_func():
-        print(message)
+@decorator_funtion
+def display():
+    print('display function ran')
 
-    return inner_func
+@decorator_funtion
+def display_info(name, age):
+    print('display_info ran with arguments ({}, {})'.format(name, age))
 
-hi_func = outer_func('Hi')
-hello_func = outer_func('Hello')
 
-hi_func()
-hello_func()
+display_info('John', 25)
+
+display()
