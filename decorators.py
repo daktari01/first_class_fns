@@ -28,8 +28,11 @@ def my_timer(orig_func):
 def display():
     print('display function ran')'''
 
-@my_logger
+import time
+
+@my_timer
 def display_info(name, age):
+    time.sleep(1)
     print('display_info ran with arguments ({}, {})'.format(name, age))
 
 
