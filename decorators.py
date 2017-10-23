@@ -30,6 +30,7 @@ def display():
 
 import time
 
+@my_logger
 @my_timer
 def display_info(name, age):
     time.sleep(1)
